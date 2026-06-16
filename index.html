@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduCraft — Servicios Academicos</title>
+  <meta name="description" content="EduCraft: Tu exito academico, construido contigo. Trabajos, informes, mapas mentales, programacion y mas.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================================================ -->
+  <!-- NAVBAR -->
+  <!-- ============================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="logo">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 8C4 6.89543 4.89543 6 6 6H12L16 9L20 6H26C27.1046 6 28 6.89543 28 8V24C28 25.1046 27.1046 26 26 26H6C4.89543 26 4 25.1046 4 24V8Z" fill="#6C3FC5" stroke="#C9A84C" stroke-width="1.5"/>
+          <path d="M4 10H28" stroke="#C9A84C" stroke-width="1.2"/>
+          <path d="M10 14H14M10 18H20" stroke="#5A4F7A" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M18 4L20 7L23 5L20 8L22 11L18 9L14 11L16 8L13 5L16 7L18 4Z" fill="#C9A84C"/>
+        </svg>
+        <span class="logo-edu">Edu</span><span class="logo-craft">Craft</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#inicio" class="active">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#precios">Precios</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+
+      <a href="#contacto" class="btn btn-primary btn-sm nav-cta">Pedir ayuda ahora</a>
+
+      <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#precios">Precios</a>
+    <a href="#faq">Preguntas frecuentes</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#contacto" class="btn btn-primary">Pedir ayuda ahora</a>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- HERO SECTION -->
+  <!-- ============================================================ -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Tu exito academico, <span>construido contigo</span></h1>
+        <p>Trabajos, informes, mapas mentales, programacion y mas. Desde lo mas basico hasta lo mas avanzado — sin estres, con calidad.</p>
+
+        <div class="hero-buttons">
+          <a href="#servicios" class="btn btn-primary">Ver servicios</a>
+          <a href="#contacto" class="btn btn-outline">Contactar ahora</a>
+        </div>
+
+        <div class="hero-badge">
+          <i class="fas fa-bolt"></i>
+          Respuesta rapida garantizada
+        </div>
+
+      </div>
+
+      <div class="hero-illustration">
+        <!-- Inline SVG: Student with laptop -->
+        <svg viewBox="0 0 400 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Desk -->
+          <rect x="40" y="280" width="320" height="12" rx="6" fill="#C9A84C" opacity="0.6"/>
+          <!-- Laptop base -->
+          <path d="M130 280 L270 280 L280 290 L120 290 Z" fill="#5A4F7A"/>
+          <rect x="145" y="215" width="110" height="65" rx="4" fill="#3B1F7A"/>
+          <rect x="152" y="222" width="96" height="51" rx="2" fill="#6C3FC5" opacity="0.3"/>
+          <!-- Screen content lines -->
+          <rect x="160" y="232" width="60" height="4" rx="2" fill="#C9A84C" opacity="0.7"/>
+          <rect x="160" y="242" width="40" height="4" rx="2" fill="#F0D080" opacity="0.5"/>
+          <rect x="160" y="252" width="50" height="4" rx="2" fill="#C9A84C" opacity="0.5"/>
+          <!-- Person body -->
+          <ellipse cx="200" cy="195" rx="38" ry="48" fill="#6C3FC5"/>
+          <!-- Person neck -->
+          <rect x="190" y="155" width="20" height="20" fill="#5A4F7A" opacity="0.5"/>
+          <!-- Person head -->
+          <circle cx="200" cy="130" r="34" fill="#C9A84C" opacity="0.35"/>
+          <!-- Hair -->
+          <path d="M168 120 Q170 90 200 88 Q230 90 232 120 Q234 105 220 98 Q200 92 180 98 Q166 105 168 120Z" fill="#3B1F7A" opacity="0.5"/>
+          <!-- Eyes -->
+          <circle cx="188" cy="132" r="3.5" fill="#3B1F7A"/>
+          <circle cx="212" cy="132" r="3.5" fill="#3B1F7A"/>
+          <!-- Smile -->
+          <path d="M192 144 Q200 150 208 144" stroke="#3B1F7A" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <!-- Arms -->
+          <path d="M165 200 Q140 230 155 260" stroke="#6C3FC5" stroke-width="14" stroke-linecap="round" fill="none"/>
+          <path d="M235 200 Q260 230 245 260" stroke="#6C3FC5" stroke-width="14" stroke-linecap="round" fill="none"/>
+          <!-- Floating elements -->
+          <circle cx="80" cy="100" r="12" fill="#C9A84C" opacity="0.25"/>
+          <circle cx="320" cy="80" r="8" fill="#6C3FC5" opacity="0.2"/>
+          <circle cx="340" cy="160" r="6" fill="#C9A84C" opacity="0.2"/>
+          <rect x="70" y="160" width="16" height="16" rx="3" fill="#6C3FC5" opacity="0.15" transform="rotate(15 78 168)"/>
+          <!-- Book stack -->
+          <rect x="290" y="260" width="44" height="10" rx="2" fill="#6C3FC5" opacity="0.5"/>
+          <rect x="294" y="250" width="36" height="10" rx="2" fill="#C9A84C" opacity="0.4"/>
+          <rect x="292" y="240" width="40" height="10" rx="2" fill="#3B1F7A" opacity="0.4"/>
+          <!-- Star sparkle -->
+          <path d="M85 230 L89 240 L99 244 L89 248 L85 258 L81 248 L71 244 L81 240 Z" fill="#C9A84C" opacity="0.5"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SERVICIOS SECTION -->
+  <!-- ============================================================ -->
+  <section class="servicios" id="servicios">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>En que podemos ayudarte?</h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <!-- Service Tabs -->
+      <div class="service-tabs reveal" id="serviceTabs">
+        <button class="tab-btn active" data-tab="todos"><i class="fas fa-th-large"></i> Todos</button>
+        <button class="tab-btn" data-tab="escritura"><i class="fas fa-pen-nib"></i> Escritura Academica</button>
+        <button class="tab-btn" data-tab="visual"><i class="fas fa-map"></i> Visual &amp; Esquemas</button>
+        <button class="tab-btn" data-tab="programacion"><i class="fas fa-laptop-code"></i> Programacion</button>
+        <button class="tab-btn" data-tab="matematicas"><i class="fas fa-flask"></i> Matematicas &amp; Ciencias</button>
+      </div>
+
+      <!-- Service Cards -->
+      <div class="services-grid stagger-children" id="servicesGrid">
+        <!-- Escritura Academica -->
+        <div class="service-card reveal" data-category="escritura">
+          <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+          <h3>Trabajos y ensayos</h3>
+          <p>Redaccion academica clara y bien estructurada para cualquier materia o tema.</p>
+          <div class="service-meta">
+            <span class="nivel-badge nivel-basico">Basico</span>
+            <span class="nivel-badge nivel-avanzado">Avanzado</span>
+            <button class="btn-solicitar" onclick="scrollToContact()">Solicitar</button>
+          </div>
+        </div>
+
+        <div class="service-card reveal" data-category="escritura">
+          <div class="service-icon"><i class="fas fa-file-invoice"></i></div>
+          <h3>Informes tecnicos</h3>
+          <p>Documentacion profesional con datos, analisis y conclusiones bien fundamentadas.</p>
+          <div class="service-meta">
+            <span class="nivel-badge nivel-intermedio">Intermedio</span>
+            <span class="nivel-badge nivel-avanzado">Avanzado</span>
+            <button class="btn-solicitar" onclick="scrollToContact()">Solicitar</button>
+          </div>
+        </div>
+
+        <div class="service-card reveal" data-category="escritura">
+          <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Tesis y proyectos de grado</h3>
+          <p>Acompanamiento completo en tu trabajo de grado, desde la propuesta hasta la defensa.</p>
+          <div class="service-meta">
+            <span class="nivel-badge nivel-avanzado">Avanzado</span>
+            <button class="btn-solicitar" onclick="scrollToContact()">Solicitar</button>
+          </div>
+        </div>
+
+        <div class="service-card reveal" data-category="escritura">
+          <div class="service-icon"><i class="fas fa-compress-alt"></i></div>
+          <h3>Resumenes y sintesis</h3>
+          <p>Condensamos informacion compleja en resumenes claros y faciles de estudiar.</p>
+          <div class="service-meta">
+            <span class="nivel-badge nivel-basico">Basico</span>
+            <button class="btn-solicitar" onclick="scrollToContact()">Solicitar</button>
+          </div>
+        </div>
+
+        <!-- Visual & Esquemas -->
+        <div class="service-card reveal" data-category="visual">
+          <div class="service-icon"><i class="fas fa-project-diagram"></i></div>
+          <h3>Mapas mentales</h3>
+          <p>Organizacion visual del conocimiento para estudiar y comprender mejor cualquier tema.</p>
+          <div class="service-meta">
+            <span class="nivel-badge nivel-basico">Basico</span>
+            <span class="nivel-badge nivel-intermedio">Intermedio</span>
+            <button class="btn-solicitar" onclick="scrollToContact()">Solicitar</button>
+          </div>
+        </div>
+
+        <div class="service-card reveal" data-category="visual">
+          <div class="service-icon"><i class="fas fa-chart-pie"></i></div>
+          <h3>Infografias</h3>
+          <p>Visualizacion atractiva de datos y conceptos para presentaciones e informes.</p>
+          <div class="service-meta">
+            <span class="nivel-badge nivel-intermedio">Intermedio</span>
+            <button class="btn-solicitar" onclick="scrollToContact()">Solicitar</button>
+          </div>
+        </div>
+
+        <div class="service-card reveal" data-category="visual">
+          <div class="service-icon"><i class="fas fa-desktop"></i></div>
+          <h3>Presentaciones PowerPoint</h3>
+          <p>Diapositivas profesionales que comunican tus ideas de forma impactante.</p>
+          <div class="service-meta">
+            <span class="nivel-badge nivel-basico">Basico</span>
+            <span class="nivel-badge nivel-intermedio">Intermedio</span>
+            <button class="btn-solicitar" onclick="scrollToContact()">Solicitar</button>
+          </div>
+        </div>
+
+        <!-- Programacion -->
+        <div class="service-card reveal" data-category="programacion">
+          <div class="service-icon"><i class="fas fa-code"></i></div>
+          <h3>Ejercicios y tareas de codigo</h3>
+          <p>Solucion paso a paso de ejercicios de programacion en cualquier lenguaje.</p>
+          <div class="service-meta">
+            <span class="nivel-badge nivel-basico">Basico</span>
+            <span class="nivel-badge nivel-intermedio">Intermedio</span>
+            <button class="btn-solicitar" onclick="scrollToContact()">Solicitar</button>
+          </div>
+        </div>
+
+        <div class="service-card reveal" data-category="programacion">
+          <div class="service-icon"><i class="fas fa-cubes"></i></div>
+          <h3>Proyectos de programacion</h3>
+          <p>Desarrollo completo de aplicaciones y sistemas con arquitectura profesional.</p>
+          <div class="service-meta">
+            <span class="nivel-badge nivel-avanzado">Avanzado</span>
+            <button class="btn-solicitar" onclick="scrollToContact()">Solicitar</button>
+          </div>
+        </div>
+
+        <div class="service-card reveal" data-category="programacion">
+          <div class="service-icon"><i class="fas fa-globe"></i></div>
+          <h3>Paginas web / aplicaciones</h3>
+          <p>Desarrollo web frontend y backend responsive, moderno y funcional.</p>
+          <div class="service-meta">
+            <span class="nivel-badge nivel-avanzado">Avanzado</span>
+            <button class="btn-solicitar" onclick="scrollToContact()">Solicitar</button>
+          </div>
+        </div>
+
+        <div class="service-card reveal" data-category="programacion">
+          <div class="service-icon"><i class="fas fa-database"></i></div>
+          <h3>Bases de datos</h3>
+          <p>Diseno, implementacion y consultas SQL/NoSQL para tus proyectos.</p>
+          <div class="service-meta">
+            <span class="nivel-badge nivel-intermedio">Intermedio</span>
+            <span class="nivel-badge nivel-avanzado">Avanzado</span>
+            <button class="btn-solicitar" onclick="scrollToContact()">Solicitar</button>
+          </div>
+        </div>
+
+        <!-- Matematicas & Ciencias -->
+        <div class="service-card reveal" data-category="matematicas">
+          <div class="service-icon"><i class="fas fa-square-root-alt"></i></div>
+          <h3>Ejercicios matematicos</h3>
+          <p>Resolucion detallada de problemas matematicos con explicaciones claras.</p>
+          <div class="service-meta">
+            <span class="nivel-badge nivel-basico">Basico</span>
+            <span class="nivel-badge nivel-intermedio">Intermedio</span>
+            <button class="btn-solicitar" onclick="scrollToContact()">Solicitar</button>
+          </div>
+        </div>
+
+        <div class="service-card reveal" data-category="matematicas">
+          <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
+          <h3>Estadistica y probabilidad</h3>
+          <p>Analisis estadistico, pruebas de hipotesis y modelos probabilisticos.</p>
+          <div class="service-meta">
+            <span class="nivel-badge nivel-intermedio">Intermedio</span>
+            <span class="nivel-badge nivel-avanzado">Avanzado</span>
+            <button class="btn-solicitar" onclick="scrollToContact()">Solicitar</button>
+          </div>
+        </div>
+
+        <div class="service-card reveal" data-category="matematicas">
+          <div class="service-icon"><i class="fas fa-atom"></i></div>
+          <h3>Fisica y quimica</h3>
+          <p>Resolucion de problemas, informes de laboratorio y explicaciones conceptuales.</p>
+          <div class="service-meta">
+            <span class="nivel-badge nivel-basico">Basico</span>
+            <span class="nivel-badge nivel-avanzado">Avanzado</span>
+            <button class="btn-solicitar" onclick="scrollToContact()">Solicitar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- COMO FUNCIONA SECTION -->
+  <!-- ============================================================ -->
+  <section class="como-funciona" id="como-funciona">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Asi de facil es trabajar con nosotros</h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="steps-container">
+        <div class="step reveal">
+          <div class="step-number">1</div>
+          <div>
+            <h3>Contactanos</h3>
+            <p>Escribenos por cualquiera de nuestros canales. Cuentanos que necesitas.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">2</div>
+          <div>
+            <h3>Analizamos tu caso</h3>
+            <p>Revisamos los requisitos, el nivel y el plazo. Te damos un presupuesto claro.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">3</div>
+          <div>
+            <h3>Lo construimos juntos</h3>
+            <p>Nuestro equipo trabaja en tu entrega con calidad y atencion al detalle.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">4</div>
+          <div>
+            <h3>Lo recibes a tiempo</h3>
+            <p>Entrega puntual, con revisiones incluidas si las necesitas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <!-- PRECIOS SECTION -->
+  <!-- ============================================================ -->
+  <section class="precios" id="precios">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Inversion en tu futuro</h2>
+        <p>Precios justos, calidad garantizada</p>
+        <div class="gold-line"></div>
+      </div>
+
+      <!-- Pricing Tabs -->
+      <div class="pricing-tabs reveal" id="pricingTabs">
+        <button class="tab-btn active" data-panel="presentaciones"><i class="fas fa-desktop"></i> Presentaciones</button>
+        <button class="tab-btn" data-panel="infografias"><i class="fas fa-chart-pie"></i> Infografias</button>
+        <button class="tab-btn" data-panel="portadas"><i class="fas fa-file-image"></i> Portadas</button>
+        <button class="tab-btn" data-panel="resumenes"><i class="fas fa-brain"></i> Resumenes y Mapas</button>
+        <button class="tab-btn" data-panel="trabajos"><i class="fas fa-pen-nib"></i> Trabajos e Investigaciones</button>
+        <button class="tab-btn" data-panel="proyectos"><i class="fas fa-laptop-code"></i> Proyectos de TI</button>
+      </div>
+
+      <!-- Panel: Presentaciones -->
+      <div class="pricing-panel active" data-panel="presentaciones">
+        <div class="pricing-category-title"><i class="fas fa-desktop" style="color:var(--morado-principal)"></i> Presentaciones que Dejan Huella</div>
+        <div class="pricing-category-price">Desde $5</div>
+        <div class="pricing-category-sub">Presentaciones profesionales que cautivan y comunican efectivamente</div>
+        <div class="pricing-table-wrapper">
+          <table class="pricing-table">
+            <thead><tr><th>Paquete</th><th>Diapositivas</th><th>Precio</th></tr></thead>
+            <tbody>
+              <tr><td>MiniPack</td><td>10</td><td class="price-cell">$5 - $10</td></tr>
+              <tr><td>Estandar</td><td>20</td><td class="price-cell">$15 - $20</td></tr>
+              <tr><td>Tesis</td><td>30 en adelante</td><td class="price-cell">$30 en adelante</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Panel: Infografias -->
+      <div class="pricing-panel" data-panel="infografias">
+        <div class="pricing-category-title"><i class="fas fa-chart-pie" style="color:var(--morado-principal)"></i> Infografias Academicas</div>
+        <div class="pricing-category-price">Desde $10</div>
+        <div class="pricing-category-sub">Visualiza informacion compleja de manera atractiva y comprensible</div>
+        <div class="pricing-table-wrapper">
+          <table class="pricing-table">
+            <thead><tr><th>Tipo</th><th>Formato</th><th>Precio</th></tr></thead>
+            <tbody>
+              <tr><td>Simple</td><td>A4 / Post</td><td class="price-cell">$10</td></tr>
+              <tr><td>Didactica</td><td>A4 Pro + PDF</td><td class="price-cell">$10 - $15</td></tr>
+              <tr><td>Tesista APA</td><td>Profesional</td><td class="price-cell">$20</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Panel: Portadas -->
+      <div class="pricing-panel" data-panel="portadas">
+        <div class="pricing-category-title"><i class="fas fa-file-image" style="color:var(--morado-principal)"></i> Portadas y Documentos</div>
+        <div class="pricing-category-price">Desde $2</div>
+        <div class="pricing-category-sub">Documentos impecables que causan una primera impresion profesional</div>
+        <div class="pricing-table-wrapper">
+          <table class="pricing-table">
+            <thead><tr><th>Tipo</th><th>Precio</th></tr></thead>
+            <tbody>
+              <tr><td>Portada simple (editable)</td><td class="price-cell">$2</td></tr>
+              <tr><td>Portada personalizada</td><td class="price-cell">$5</td></tr>
+              <tr><td>Plantilla APA / informe</td><td class="price-cell">$10</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Panel: Resumenes y Mapas -->
+      <div class="pricing-panel" data-panel="resumenes">
+        <div class="pricing-category-title"><i class="fas fa-brain" style="color:var(--morado-principal)"></i> Resumenes y Mapas</div>
+        <div class="pricing-category-price">Desde $5</div>
+        <div class="pricing-category-sub">Organiza y visualiza conocimiento de forma clara y memorable</div>
+        <div class="pricing-table-wrapper">
+          <table class="pricing-table">
+            <thead><tr><th>Tipo</th><th>Precio</th></tr></thead>
+            <tbody>
+              <tr><td>Resumen visual (2 paginas)</td><td class="price-cell">$5</td></tr>
+              <tr><td>Mapa conceptual</td><td class="price-cell">$10</td></tr>
+              <tr><td>Combo resumen + infografia</td><td class="price-cell">$10 - $15</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Panel: Trabajos e Investigaciones -->
+      <div class="pricing-panel" data-panel="trabajos">
+        <div class="pricing-category-title"><i class="fas fa-pen-nib" style="color:var(--morado-principal)"></i> Trabajos e Investigaciones</div>
+        <div class="pricing-category-price">Desde $8</div>
+        <div class="pricing-category-sub">Investigaciones y ensayos academicos de alta calidad</div>
+        <div class="pricing-table-wrapper">
+          <table class="pricing-table">
+            <thead><tr><th>Tipo</th><th>Paginas</th><th>Precio</th></tr></thead>
+            <tbody>
+              <tr><td>Ensayo / informe simple</td><td>1 - 3</td><td class="price-cell">$8</td></tr>
+              <tr><td>Trabajo intermedio</td><td>4 - 8</td><td class="price-cell">$15 - $20</td></tr>
+              <tr><td>Investigacion avanzada</td><td>10 o mas</td><td class="price-cell">$30 - $50</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Panel: Proyectos de TI -->
+      <div class="pricing-panel" data-panel="proyectos">
+        <div class="pricing-category-title"><i class="fas fa-laptop-code" style="color:var(--morado-principal)"></i> Proyectos de Ingenieria y TI</div>
+        <div class="pricing-category-price">Desde $15</div>
+        <div class="pricing-category-sub">Desarrollo de software y soluciones tecnologicas</div>
+        <div class="pricing-table-wrapper">
+          <table class="pricing-table">
+            <thead><tr><th>Tipo</th><th>Ejemplo</th><th>Precio</th></tr></thead>
+            <tbody>
+              <tr><td>Proyecto simple</td><td>CRUD, inventario, login basico</td><td class="price-cell">$15 - $25</td></tr>
+              <tr><td>Proyecto intermedio</td><td>Web con BD, dashboard, logica</td><td class="price-cell">$30 en adelante</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Extras -->
+      <div class="reveal" style="margin-top:40px;">
+        <div class="pricing-category-title"><i class="fas fa-plus-circle" style="color:var(--dorado)"></i> Extras y Servicios Adicionales</div>
+        <div class="extras-grid">
+          <div class="extra-chip"><i class="fas fa-video"></i> Exportar a video — Desde $5</div>
+          <div class="extra-chip"><i class="fas fa-spell-check"></i> Revision ortografica — Desde $2</div>
+          <div class="extra-chip"><i class="fas fa-book"></i> Bibliografia extra — Desde $5</div>
+          <div class="extra-chip"><i class="fas fa-file-powerpoint"></i> Conversion a presentacion — Desde $5</div>
+          <div class="extra-chip"><i class="fas fa-image"></i> Infografia adicional — Desde $5</div>
+          <div class="extra-chip express"><i class="fas fa-bolt"></i> Entrega exprés (12h-24h) — Desde $10</div>
+        </div>
+      </div>
+
+      <!-- Plans Section -->
+      <div class="plans-section">
+        <div class="section-header reveal">
+          <h2>Planes mensuales</h2>
+          <p>Ahorra con nuestros packs</p>
+          <div class="gold-line"></div>
+        </div>
+
+        <div class="plans-grid stagger-children">
+          <!-- Plan 1 -->
+          <div class="plan-card reveal">
+            <span class="plan-badge puntual">Puntual y simple</span>
+            <h3>Pack Entrega Completa</h3>
+            <div class="plan-price">$25</div>
+            <p class="plan-tagline">Perfecto para un proyecto especifico</p>
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> 1 Presentacion profesional</li>
+              <li><i class="fas fa-check"></i> 1 Trabajo escrito</li>
+              <li><i class="fas fa-check"></i> 1 Infografia</li>
+            </ul>
+            <button class="plan-cta outline-morado" onclick="scrollToContact()">Solicitar pack</button>
+          </div>
+
+          <!-- Plan 2 (Popular) -->
+          <div class="plan-card popular reveal">
+            <span class="plan-badge popular-badge">Mas popular</span>
+            <h3>Plan Estudiante Activo</h3>
+            <div class="plan-price">$35<span>/mes</span></div>
+            <p class="plan-tagline">Para estudiantes con 3-4 entregas por semana. Maxima flexibilidad.</p>
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> 3 Trabajos escritos</li>
+              <li><i class="fas fa-check"></i> 3 Presentaciones</li>
+              <li><i class="fas fa-check"></i> 2 Infografias</li>
+              <li><i class="fas fa-check"></i> 2 Portadas</li>
+              <li><i class="fas fa-check"></i> 1 Servicio extra GRATIS</li>
+            </ul>
+            <button class="plan-cta dorado" onclick="scrollToContact()">Quiero este plan</button>
+          </div>
+
+          <!-- Plan 3 -->
+          <div class="plan-card reveal">
+            <span class="plan-badge tranquilidad">Maxima tranquilidad</span>
+            <h3>Plan Pro Ilimitado</h3>
+            <div class="plan-price">$45<span>/mes</span></div>
+            <p class="plan-tagline">Para quienes quieren tranquilidad total. Sin limite de entregas.</p>
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> Servicios ILIMITADOS por 1 mes</li>
+              <li><i class="fas fa-check"></i> Prioridad en entregas</li>
+              <li><i class="fas fa-check"></i> Entrega express SIN COSTO</li>
+              <li><i class="fas fa-check"></i> 2 Revisiones gratuitas por trabajo</li>
+              <li><i class="fas fa-check"></i> 50% descuento en extras</li>
+            </ul>
+            <button class="plan-cta morado-dark" onclick="scrollToContact()">Quiero maxima tranquilidad</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="pricing-footer-note">No encuentras lo que necesitas? <a href="#contacto" style="color:var(--morado-principal);font-weight:600;">Contactanos</a> y armamos un paquete a tu medida.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FAQ ACCORDION -->
+  <!-- ============================================================ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Preguntas frecuentes</h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="accordion reveal">
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <h3>Cuanto tiempo tardan en entregar?</h3>
+            <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">Depende del tipo de trabajo. Trabajos simples en 24-48h. Proyectos complejos se acuerdan con el cliente. Siempre cumplimos el plazo acordado.</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <h3>Como se que mi trabajo sera original?</h3>
+            <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">Todo lo que elaboramos es creado desde cero para cada cliente. No reutilizamos trabajos anteriores.</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <h3>Puedo pedir correcciones?</h3>
+            <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">Si. Incluimos revisiones hasta que estes satisfecho con el resultado.</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <h3>Como hago el pago?</h3>
+            <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">Coordinamos el metodo de pago al momento de acordar el trabajo. Trabajamos con distintas opciones.</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <h3>Trabajan con cualquier nivel educativo?</h3>
+            <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">Si. Desde primaria y bachillerato hasta universidad y postgrado.</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <h3>Puedo contactarlos a cualquier hora?</h3>
+            <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">Tenemos atencion disponible la mayor parte del dia. Respondemos lo mas rapido posible.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CONTACTO SECTION -->
+  <!-- ============================================================ -->
+  <section class="contacto" id="contacto">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Listo para empezar?</h2>
+        <p>Escribenos ahora — respondemos rapido</p>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="reveal">
+          <div class="contact-group">
+            <div class="contact-group-label"><i class="fab fa-whatsapp"></i> Telefonos / WhatsApp</div>
+            <div class="contact-item">
+              <a href="https://wa.me/584249016080" target="_blank">+58 424-9016080</a>
+              <a href="https://wa.me/584249016080" target="_blank" class="contact-item-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="contact-item">
+              <a href="https://wa.me/584262296127" target="_blank">+58 426-2296127</a>
+              <a href="https://wa.me/584262296127" target="_blank" class="contact-item-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="contact-item">
+              <a href="https://wa.me/584129266244" target="_blank">+58 412-9266244</a>
+              <a href="https://wa.me/584129266244" target="_blank" class="contact-item-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="contact-item">
+              <a href="https://wa.me/584148804780" target="_blank">+58 414-8804780</a>
+              <a href="https://wa.me/584148804780" target="_blank" class="contact-item-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+
+          <div class="contact-group">
+            <div class="contact-group-label"><i class="fas fa-envelope"></i> Correos electronicos</div>
+            <div class="contact-item">
+              <a href="mailto:phamelamorey1998@gmail.com">phamelamorey1998@gmail.com</a>
+              <a href="mailto:phamelamorey1998@gmail.com" class="contact-item-btn email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="contact-item">
+              <a href="mailto:jpadron045@gmail.com">jpadron045@gmail.com</a>
+              <a href="mailto:jpadron045@gmail.com" class="contact-item-btn email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="contact-item">
+              <a href="mailto:vh202279@gmail.com">vh202279@gmail.com</a>
+              <a href="mailto:vh202279@gmail.com" class="contact-item-btn email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="contact-item">
+              <a href="mailto:hilliaryangel7@gmail.com">hilliaryangel7@gmail.com</a>
+              <a href="mailto:hilliaryangel7@gmail.com" class="contact-item-btn email"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper reveal" id="contactFormWrapper">
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="nombre">Nombre completo *</label>
+              <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electronico *</label>
+              <input type="email" id="email" name="email" required placeholder="tu@email.com">
+            </div>
+            <div class="form-group">
+              <label for="nivel">Nivel educativo</label>
+              <select id="nivel" name="nivel">
+                <option value="">Selecciona tu nivel</option>
+                <option value="bachillerato">Bachillerato</option>
+                <option value="universitario">Universitario</option>
+                <option value="postgrado">Postgrado</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="tipoServicio">Tipo de servicio</label>
+              <select id="tipoServicio" name="tipoServicio">
+                <option value="">Que necesitas?</option>
+                <option value="trabajos-ensayos">Trabajos y ensayos</option>
+                <option value="informes">Informes tecnicos</option>
+                <option value="tesis">Tesis y proyectos de grado</option>
+                <option value="resumenes">Resumenes y sintesis</option>
+                <option value="mapas">Mapas mentales</option>
+                <option value="infografias">Infografias</option>
+                <option value="presentaciones">Presentaciones</option>
+                <option value="programacion">Programacion</option>
+                <option value="bases-datos">Bases de datos</option>
+                <option value="matematicas">Matematicas y ciencias</option>
+                <option value="otro">Otro (describelo abajo)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fechaLimite">Fecha limite de entrega</label>
+              <input type="date" id="fechaLimite" name="fechaLimite">
+            </div>
+            <div class="form-group">
+              <label for="descripcion">Descripcion del trabajo *</label>
+              <textarea id="descripcion" name="descripcion" required placeholder="Cuentanos los detalles de lo que necesitas..."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="origen">Como nos encontraste?</label>
+              <select id="origen" name="origen">
+                <option value="">Selecciona una opcion</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="redes">Redes sociales</option>
+                <option value="recomendacion">Recomendacion</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <button type="submit" class="form-submit">Enviar solicitud</button>
+          </form>
+
+          <!-- Success message -->
+          <div class="form-success" id="formSuccess">
+            <i class="fas fa-check-circle"></i>
+            <h3>Recibimos tu solicitud!</h3>
+            <p>Te contactaremos pronto.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER -->
+  <!-- ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <span class="logo-edu">Edu</span><span class="logo-craft">Craft</span>
+        </div>
+        <p class="footer-tagline">"Construyendo tu exito academico, un trabajo a la vez."</p>
+      </div>
+
+      <nav class="footer-nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#precios">Precios</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="footer-icons">
+        <a href="https://wa.me/584249016080" target="_blank" class="whatsapp-link" aria-label="WhatsApp 1"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/584262296127" target="_blank" class="whatsapp-link" aria-label="WhatsApp 2"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/584129266244" target="_blank" class="whatsapp-link" aria-label="WhatsApp 3"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/584148804780" target="_blank" class="whatsapp-link" aria-label="WhatsApp 4"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:phamelamorey1998@gmail.com" class="email-link" aria-label="Email 1"><i class="fas fa-envelope"></i></a>
+        <a href="mailto:jpadron045@gmail.com" class="email-link" aria-label="Email 2"><i class="fas fa-envelope"></i></a>
+        <a href="mailto:vh202279@gmail.com" class="email-link" aria-label="Email 3"><i class="fas fa-envelope"></i></a>
+        <a href="mailto:hilliaryangel7@gmail.com" class="email-link" aria-label="Email 4"><i class="fas fa-envelope"></i></a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 EduCraft Servicios Academicos &middot; Todos los derechos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+
+</body>
+</html>
