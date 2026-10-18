@@ -1,0 +1,10 @@
+# Credenciales y configuracion privada
+config.js
+.env
+*.env
+.env.*
+
+# Logs y temporales
+*.log
+.DS_Store
+Thumbs.db

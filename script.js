@@ -258,10 +258,10 @@ accordionItems.forEach(item => {
   });
 });
 
-// Configuración de Telegram Bot para notificaciones a los 4 asesores
-const TELEGRAM_CONFIG = {
-  botToken: '', // Reemplazar con el token de @BotFather (ej: 123456789:ABCdef...)
-  chatId: ''    // Reemplazar con el ID del grupo (ej: -1001234567890)
+// Configuración de Telegram Bot (Cargada desde config.js, protegido por .gitignore)
+const TELEGRAM_CONFIG = window.TELEGRAM_CONFIG || {
+  botToken: '',
+  chatId: ''
 };
 
 // WhatsApp Numbers for dispatch
