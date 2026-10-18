@@ -758,27 +758,34 @@
         <div class="gold-line"></div>
       </div>
 
-      <div class="contact-grid">
-        <!-- Contact Info -->
-        <div class="reveal">
-          <div class="contact-group">
-            <div class="contact-group-label"><i class="fab fa-whatsapp"></i> WhatsApp</div>
-            <div class="contact-btns-grid">
-              <a href="https://wa.me/584249016080" target="_blank" class="contact-direct-btn whatsapp">
-                <i class="fab fa-whatsapp"></i> WhatsApp 1
-              </a>
-              <a href="https://wa.me/584122155025" target="_blank" class="contact-direct-btn whatsapp">
-                <i class="fab fa-whatsapp"></i> WhatsApp 2
-              </a>
-              <a href="https://wa.me/584148804780" target="_blank" class="contact-direct-btn whatsapp">
-                <i class="fab fa-whatsapp"></i> WhatsApp 3
-              </a>
-            </div>
+      <div class="contact-centered-wrapper reveal">
+        <!-- WhatsApp Direct Buttons -->
+        <div class="contact-quick-bar">
+          <div class="contact-group-label centered">
+            <i class="fab fa-whatsapp"></i> Contacto directo por WhatsApp
           </div>
+          <div class="contact-whatsapp-grid">
+            <a href="https://wa.me/584249016080" target="_blank" class="contact-direct-btn whatsapp">
+              <i class="fab fa-whatsapp"></i> WhatsApp 1
+            </a>
+            <a href="https://wa.me/584122155025" target="_blank" class="contact-direct-btn whatsapp">
+              <i class="fab fa-whatsapp"></i> WhatsApp 2
+            </a>
+            <a href="https://wa.me/584148804780" target="_blank" class="contact-direct-btn whatsapp">
+              <i class="fab fa-whatsapp"></i> WhatsApp 3
+            </a>
+          </div>
+        </div>
 
-          <!-- Contact Form -->
-          <div class="contact-form-wrapper reveal" id="contactFormWrapper">
-            <form id="contactForm" novalidate>
+        <!-- Symmetrical Separator -->
+        <div class="contact-separator">
+          <span>O completa el formulario</span>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper" id="contactFormWrapper">
+          <form id="contactForm" novalidate>
+            <div class="form-fields-grid">
               <div class="form-group">
                 <label for="nombre">Nombre completo *</label>
                 <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
@@ -819,11 +826,6 @@
                 <input type="date" id="fechaLimite" name="fechaLimite">
               </div>
               <div class="form-group">
-                <label for="descripcion">Descripcion del trabajo *</label>
-                <textarea id="descripcion" name="descripcion" required
-                  placeholder="Cuentanos los detalles de lo que necesitas..."></textarea>
-              </div>
-              <div class="form-group">
                 <label for="origen">Como nos encontraste?</label>
                 <select id="origen" name="origen">
                   <option value="">Selecciona una opcion</option>
@@ -833,18 +835,24 @@
                   <option value="otro">Otro</option>
                 </select>
               </div>
-              <button type="submit" class="form-submit">Enviar solicitud</button>
-            </form>
-
-            <!-- Success message -->
-            <div class="form-success" id="formSuccess">
-              <i class="fas fa-check-circle"></i>
-              <h3>Recibimos tu solicitud!</h3>
-              <p>Te contactaremos pronto.</p>
+              <div class="form-group full-width">
+                <label for="descripcion">Descripcion del trabajo *</label>
+                <textarea id="descripcion" name="descripcion" required
+                  placeholder="Cuentanos los detalles de lo que necesitas..."></textarea>
+              </div>
             </div>
+            <button type="submit" class="form-submit">Enviar solicitud</button>
+          </form>
+
+          <!-- Success message -->
+          <div class="form-success" id="formSuccess">
+            <i class="fas fa-check-circle"></i>
+            <h3>Recibimos tu solicitud!</h3>
+            <p>Te contactaremos pronto.</p>
           </div>
         </div>
       </div>
+    </div>
   </section>
 
   <!-- ============================================================ -->
