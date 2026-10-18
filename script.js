@@ -271,13 +271,26 @@ const TELEGRAM_CONFIG = (window.TELEGRAM_CONFIG && window.TELEGRAM_CONFIG.botTok
   chatId: atob('LTEwMDM4NTg0MTQwNjE=')
 };
 
-// WhatsApp Numbers for dispatch
+// WhatsApp Numbers for dispatch (4 asesores del equipo)
 const WHATSAPP_NUMBERS = [
-  { id: 1, name: 'WhatsApp 1', number: '584249016080' },
-  { id: 2, name: 'WhatsApp 2', number: '584122155025' },
-  { id: 3, name: 'WhatsApp 3', number: '584148804780' },
-  { id: 4, name: 'WhatsApp 4', number: '584121799492' }
+  { id: 1, name: 'Asesor 1', number: '584249016080' },
+  { id: 2, name: 'Asesor 2', number: '584122155025' },
+  { id: 3, name: 'Asesor 3', number: '584148804780' },
+  { id: 4, name: 'Asesor 4', number: '584121799492' }
 ];
+
+// Función Round-Robin para repartir los clientes de forma equitativa
+function getNextAssignedAdvisor() {
+  let currentIndex = parseInt(localStorage.getItem('educraft_rr_advisor_index'), 10);
+  if (isNaN(currentIndex)) {
+    // Si es un visitante nuevo, partimos de un índice aleatorio para balancear la carga global entre todos
+    currentIndex = Math.floor(Math.random() * WHATSAPP_NUMBERS.length);
+  }
+  const assigned = WHATSAPP_NUMBERS[currentIndex % WHATSAPP_NUMBERS.length];
+  // Guardamos el siguiente turno para la próxima solicitud
+  localStorage.setItem('educraft_rr_advisor_index', (currentIndex + 1) % WHATSAPP_NUMBERS.length);
+  return assigned;
+}
 
 // ---------- Contact Form ----------
 const contactForm = $('#contactForm');
@@ -344,6 +357,9 @@ if (contactForm) {
     // Limpiar numero de telefono para enlace
     const cleanPhone = telefono.replace(/[^\d]/g, '');
 
+    // Asignar asesor equitativamente mediante Round-Robin
+    const assignedAdvisor = getNextAssignedAdvisor();
+
     // 1. Enviar notificación instantánea a Telegram y ESPERAR entrega
     if (TELEGRAM_CONFIG.botToken && TELEGRAM_CONFIG.chatId) {
       const telegramMsg = `🎓 <b>NUEVA SOLICITUD DE TRABAJO - EduCraft</b>\n\n` +
@@ -353,7 +369,8 @@ if (contactForm) {
         `📚 <b>Nivel:</b> ${nivel}\n` +
         `🛠️ <b>Servicio:</b> ${servicio}\n` +
         `📅 <b>Fecha entrega:</b> ${fecha}\n` +
-        `🔍 <b>Origen:</b> ${origen}\n\n` +
+        `🔍 <b>Origen:</b> ${origen}\n` +
+        `🎯 <b>Asesor Asignado:</b> ${assignedAdvisor.name} (+${assignedAdvisor.number})\n\n` +
         `📝 <b>Detalles del trabajo:</b>\n${descripcion}`;
 
       try {
@@ -385,32 +402,36 @@ if (contactForm) {
       `🛠️ *Servicio:* ${servicio}`,
       `📅 *Fecha de entrega:* ${fecha}`,
       `🔍 *Nos encontro por:* ${origen}`,
+      `🎯 *Asesor Asignado:* ${assignedAdvisor.name}`,
       '',
       '📝 *Detalles del trabajo:*',
       descripcion
     ];
     const fullMessage = messageLines.join('\n');
     const encodedMsg = encodeURIComponent(fullMessage);
-    const directWhatsAppUrl = `https://wa.me/${WHATSAPP_NUMBERS[0].number}?text=${encodedMsg}`;
+    const directWhatsAppUrl = `https://wa.me/${assignedAdvisor.number}?text=${encodedMsg}`;
 
-    // 3. Render cards for all 4 numbers with preloaded message
+    // 3. Render cards for all 4 numbers with preloaded message, destacando el asignado
     if (waSendAllGrid) {
-      waSendAllGrid.innerHTML = WHATSAPP_NUMBERS.map(wa => `
-        <a href="https://wa.me/${wa.number}?text=${encodedMsg}" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="wa-dispatch-card" 
-           data-id="${wa.id}">
-          <div class="wa-dispatch-left">
-            <i class="fab fa-whatsapp"></i>
-            <div class="wa-dispatch-text">
-              <span class="wa-dispatch-name">${wa.name}</span>
-              <span class="wa-dispatch-num">+${wa.number}</span>
+      waSendAllGrid.innerHTML = WHATSAPP_NUMBERS.map(wa => {
+        const isAssigned = (wa.id === assignedAdvisor.id);
+        return `
+          <a href="https://wa.me/${wa.number}?text=${encodedMsg}" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="wa-dispatch-card ${isAssigned ? 'assigned-advisor' : ''}" 
+             data-id="${wa.id}">
+            <div class="wa-dispatch-left">
+              <i class="fab fa-whatsapp"></i>
+              <div class="wa-dispatch-text">
+                <span class="wa-dispatch-name">${wa.name} ${isAssigned ? '⭐ (Turno Asignado)' : ''}</span>
+                <span class="wa-dispatch-num">+${wa.number}</span>
+              </div>
             </div>
-          </div>
-          <span class="wa-dispatch-badge"><i class="fas fa-paper-plane"></i> Enviar chat</span>
-        </a>
-      `).join('');
+            <span class="wa-dispatch-badge"><i class="fas ${isAssigned ? 'fa-star' : 'fa-paper-plane'}"></i> ${isAssigned ? 'Tu Asesor' : 'Contactar'}</span>
+          </a>
+        `;
+      }).join('');
 
       // Mark as opened when clicked
       waSendAllGrid.querySelectorAll('.wa-dispatch-card').forEach(card => {
@@ -424,10 +445,16 @@ if (contactForm) {
       });
     }
 
-    // Actualizar botón principal si existe
+    // Actualizar botón principal con el asesor asignado
     const btnPrimaryWhatsApp = $('#btnPrimaryWhatsApp');
     if (btnPrimaryWhatsApp) {
       btnPrimaryWhatsApp.href = directWhatsAppUrl;
+      btnPrimaryWhatsApp.innerHTML = `<i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i> Abrir chat con ${assignedAdvisor.name} (+${assignedAdvisor.number})`;
+    }
+
+    const formSuccessSubtitle = $('#formSuccessSubtitle');
+    if (formSuccessSubtitle) {
+      formSuccessSubtitle.innerHTML = `Hemos enviado tu solicitud a nuestro equipo en tiempo real y asignado tu consulta a <strong>${assignedAdvisor.name}</strong> (+${assignedAdvisor.number}). Puedes abrir el chat de WhatsApp directamente aquí abajo:`;
     }
 
     // 4. Transicionar interfaz a vista de exito
@@ -440,7 +467,7 @@ if (contactForm) {
       }
     }
 
-    // 5. Abrir WhatsApp en una nueva pestaña (sin abandonar la página)
+    // 5. Abrir WhatsApp en una nueva pestaña con el asesor asignado
     try {
       window.open(directWhatsAppUrl, '_blank');
     } catch (e) {

@@ -1578,6 +1578,18 @@ section {
   box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
 }
 
+.wa-dispatch-card.assigned-advisor {
+  border-color: #25D366;
+  background: rgba(37, 211, 102, 0.22);
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35);
+}
+
+.wa-dispatch-card.assigned-advisor .wa-dispatch-badge {
+  background: #25D366;
+  color: #ffffff;
+  font-weight: 700;
+}
+
 .wa-dispatch-card.opened {
   border-color: rgba(34, 197, 94, 0.6);
   background: rgba(34, 197, 94, 0.15);
