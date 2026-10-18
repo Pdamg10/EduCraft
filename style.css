@@ -1490,6 +1490,15 @@ section {
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-dorado);
   transition: all var(--transition-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.form-submit i {
+  font-size: 1.25rem;
 }
 
 .form-submit:hover {
@@ -1497,36 +1506,153 @@ section {
   transform: translateY(-2px);
 }
 
-/* Form success message */
+/* Form success message & Multi-WhatsApp Dispatch */
 .form-success {
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 48px 24px;
+  padding: 32px 16px;
 }
 
 .form-success.active {
   display: flex;
 }
 
-.form-success i {
-  font-size: 4rem;
+.form-success .success-icon {
+  font-size: 3.5rem;
   color: var(--exito);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .form-success h3 {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--blanco);
   margin-bottom: 8px;
 }
 
-.form-success p {
-  color: rgba(255, 255, 255, 0.75);
+.form-success .success-intro {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  max-width: 520px;
+}
+
+.wa-send-all-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 640px) {
+  .wa-send-all-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wa-dispatch-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(37, 211, 102, 0.35);
+  border-radius: var(--radius-md);
+  color: var(--blanco);
+  text-decoration: none;
+  transition: all var(--transition-sm);
+  cursor: pointer;
+}
+
+.wa-dispatch-card:hover {
+  background: rgba(37, 211, 102, 0.18);
+  border-color: var(--whatsapp);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+
+.wa-dispatch-card.opened {
+  border-color: rgba(34, 197, 94, 0.6);
+  background: rgba(34, 197, 94, 0.15);
+}
+
+.wa-dispatch-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+}
+
+.wa-dispatch-left i {
+  font-size: 1.4rem;
+  color: var(--whatsapp);
+}
+
+.wa-dispatch-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.wa-dispatch-name {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--blanco);
+}
+
+.wa-dispatch-num {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.wa-dispatch-badge {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: var(--whatsapp);
+  color: var(--blanco);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: all var(--transition-sm);
+}
+
+.wa-dispatch-card.opened .wa-dispatch-badge {
+  background: rgba(34, 197, 94, 0.25);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.4);
+}
+
+.btn-nueva-solicitud {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 10px 22px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-sm);
+}
+
+.btn-nueva-solicitud:hover {
+  border-color: var(--dorado);
+  color: var(--dorado);
+  background: rgba(201, 168, 76, 0.08);
 }
 
 /* ---------- Footer ---------- */

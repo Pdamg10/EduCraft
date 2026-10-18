@@ -258,9 +258,19 @@ accordionItems.forEach(item => {
   });
 });
 
+// WhatsApp Numbers for dispatch
+const WHATSAPP_NUMBERS = [
+  { id: 1, name: 'WhatsApp 1', number: '584249016080' },
+  { id: 2, name: 'WhatsApp 2', number: '584122155025' },
+  { id: 3, name: 'WhatsApp 3', number: '584148804780' },
+  { id: 4, name: 'WhatsApp 4', number: '584121799492' }
+];
+
 // ---------- Contact Form ----------
 const contactForm = $('#contactForm');
 const formSuccess = $('#formSuccess');
+const waSendAllGrid = $('#waSendAllGrid');
+const btnNuevaSolicitud = $('#btnNuevaSolicitud');
 
 // Real-time validation
 $$('#contactForm input, #contactForm select, #contactForm textarea').forEach(field => {
@@ -281,16 +291,104 @@ contactForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
   let allValid = true;
+  let firstInvalid = null;
   $$('#contactForm [required]').forEach(field => {
-    if (!validateField(field)) allValid = false;
+    if (!validateField(field)) {
+      allValid = false;
+      if (!firstInvalid) firstInvalid = field;
+    }
   });
 
-  if (allValid) {
-    // TODO: conectar con backend o EmailJS
-    contactForm.style.display = 'none';
-    formSuccess.classList.add('active');
+  if (!allValid) {
+    if (firstInvalid) firstInvalid.focus();
+    return;
   }
+
+  // Extract form data
+  const nombre = $('#nombre').value.trim();
+  const email = $('#email').value.trim();
+  const nivelEl = $('#nivel');
+  const nivel = (nivelEl && nivelEl.value) ? nivelEl.options[nivelEl.selectedIndex].text : 'No especificado';
+  const servicioEl = $('#tipoServicio');
+  const servicio = (servicioEl && servicioEl.value) ? servicioEl.options[servicioEl.selectedIndex].text : 'No especificado';
+  const fecha = $('#fechaLimite').value || 'Por acordar';
+  const origenEl = $('#origen');
+  const origen = (origenEl && origenEl.value) ? origenEl.options[origenEl.selectedIndex].text : 'No especificado';
+  const descripcion = $('#descripcion').value.trim();
+
+  // Build formatted WhatsApp message
+  const messageLines = [
+    '🎓 *NUEVA SOLICITUD DE TRABAJO - EDU_CRAFT*',
+    '',
+    `👤 *Nombre:* ${nombre}`,
+    `📧 *Correo:* ${email}`,
+    `📚 *Nivel:* ${nivel}`,
+    `🛠️ *Servicio:* ${servicio}`,
+    `📅 *Fecha de entrega:* ${fecha}`,
+    `🔍 *Nos encontro por:* ${origen}`,
+    '',
+    '📝 *Detalles del trabajo:*',
+    descripcion
+  ];
+  const fullMessage = messageLines.join('\n');
+  const encodedMsg = encodeURIComponent(fullMessage);
+
+  // Render cards for all 4 numbers with preloaded message
+  if (waSendAllGrid) {
+    waSendAllGrid.innerHTML = WHATSAPP_NUMBERS.map(wa => `
+      <a href="https://wa.me/${wa.number}?text=${encodedMsg}" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="wa-dispatch-card" 
+         data-id="${wa.id}">
+        <div class="wa-dispatch-left">
+          <i class="fab fa-whatsapp"></i>
+          <div class="wa-dispatch-text">
+            <span class="wa-dispatch-name">${wa.name}</span>
+            <span class="wa-dispatch-num">+${wa.number}</span>
+          </div>
+        </div>
+        <span class="wa-dispatch-badge"><i class="fas fa-paper-plane"></i> Enviar chat</span>
+      </a>
+    `).join('');
+
+    // Mark as opened when clicked
+    waSendAllGrid.querySelectorAll('.wa-dispatch-card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.add('opened');
+        const badge = card.querySelector('.wa-dispatch-badge');
+        if (badge) {
+          badge.innerHTML = '<i class="fas fa-check"></i> Abierto';
+        }
+      });
+    });
+
+    // Mark WhatsApp 1 as opened
+    const firstCard = waSendAllGrid.querySelector('[data-id="1"]');
+    if (firstCard) {
+      firstCard.classList.add('opened');
+      const badge = firstCard.querySelector('.wa-dispatch-badge');
+      if (badge) {
+        badge.innerHTML = '<i class="fas fa-check"></i> Abierto';
+      }
+    }
+  }
+
+  // Open first WhatsApp automatically in a new window/tab
+  window.open(`https://wa.me/${WHATSAPP_NUMBERS[0].number}?text=${encodedMsg}`, '_blank');
+
+  // Transition UI to success view
+  contactForm.style.display = 'none';
+  formSuccess.classList.add('active');
 });
+
+// Reset form and go back
+if (btnNuevaSolicitud) {
+  btnNuevaSolicitud.addEventListener('click', () => {
+    formSuccess.classList.remove('active');
+    contactForm.style.display = 'block';
+  });
+}
 
 // Helper: scroll to contact
 function scrollToContact() {

@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="style.css?v=2.2">
+  <link rel="stylesheet" href="style.css?v=2.3">
 </head>
 
 <body>
@@ -843,14 +843,24 @@
                   placeholder="Cuentanos los detalles de lo que necesitas..."></textarea>
               </div>
             </div>
-            <button type="submit" class="form-submit">Enviar solicitud</button>
+            <button type="submit" class="form-submit"><i class="fab fa-whatsapp"></i> Enviar solicitud a los WhatsApp</button>
           </form>
 
-          <!-- Success message -->
+          <!-- Success message with multi-WhatsApp dispatch -->
           <div class="form-success" id="formSuccess">
-            <i class="fas fa-check-circle"></i>
-            <h3>Recibimos tu solicitud!</h3>
-            <p>Te contactaremos pronto.</p>
+            <i class="fas fa-check-circle success-icon"></i>
+            <h3>Tu solicitud esta lista!</h3>
+            <p class="success-intro">
+              Se ha preparado tu mensaje. Para que <strong>todos nuestros asesores</strong> lo reciban y te respondan al instante, abre el chat con cada uno:
+            </p>
+
+            <div class="wa-send-all-grid" id="waSendAllGrid">
+              <!-- Cargado dinamicamente con los 4 numeros y el mensaje pre-cargado -->
+            </div>
+
+            <button type="button" class="btn-nueva-solicitud" id="btnNuevaSolicitud">
+              <i class="fas fa-edit"></i> Editar datos o enviar otra solicitud
+            </button>
           </div>
         </div>
       </div>
@@ -903,7 +913,7 @@
   </footer>
 
   <!-- Script -->
-  <script src="script.js"></script>
+  <script src="script.js?v=2.3"></script>
 
 </body>
 
