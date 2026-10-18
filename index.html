@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="style.css?v=2.5">
+  <link rel="stylesheet" href="style.css?v=2.6">
 </head>
 
 <body>
@@ -787,7 +787,7 @@
             <p class="form-card-subtitle" style="color: rgba(255, 255, 255, 0.75);">Cuéntanos los detalles de tu trabajo
               y te responderemos a la brevedad</p>
           </div>
-          <form id="contactForm" novalidate>
+          <form id="contactForm" novalidate onsubmit="return false;">
             <div class="form-fields-grid">
               <div class="form-group">
                 <label for="nombre">Nombre completo *</label>
@@ -854,11 +854,14 @@
           <!-- Success message with multi-WhatsApp dispatch -->
           <div class="form-success" id="formSuccess">
             <i class="fas fa-check-circle success-icon"></i>
-            <h3>Tu solicitud esta lista!</h3>
-            <p class="success-intro">
-              Se ha preparado tu mensaje. Para que <strong>todos nuestros asesores</strong> lo reciban y te respondan al
-              instante, abre el chat con cada uno:
+            <h3 id="formSuccessTitle">¡Solicitud recibida con éxito!</h3>
+            <p class="success-intro" id="formSuccessSubtitle">
+              Hemos enviado tu solicitud a nuestro equipo en tiempo real por <strong>Telegram</strong>. Para recibir respuesta inmediata, abre el chat con nuestros asesores en <strong>WhatsApp</strong>:
             </p>
+
+            <a id="btnPrimaryWhatsApp" href="#" target="_blank" rel="noopener noreferrer" class="contact-direct-btn whatsapp" style="display: flex; width: 100%; max-width: 480px; padding: 14px 20px; font-size: 1rem; margin: 0 auto 24px; justify-content: center; background: #25D366; color: #ffffff; text-decoration: none; border-radius: 12px; font-weight: 700; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);">
+              <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i> Abrir chat directo (+58 424 9016080)
+            </a>
 
             <div class="wa-send-all-grid" id="waSendAllGrid">
               <!-- Cargado dinamicamente con los 4 numeros y el mensaje pre-cargado -->
@@ -903,7 +906,7 @@
   <script src="config.js"></script>
 
   <!-- Script principal -->
-  <script src="script.js?v=2.5"></script>
+  <script src="script.js?v=2.6"></script>
 
 </body>
 
