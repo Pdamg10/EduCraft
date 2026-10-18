@@ -1,6 +1,6 @@
 [build]
   publish = "."
-  command = ""
+  command = "node -e \"const fs = require('fs'); fs.writeFileSync('config.js', 'window.TELEGRAM_CONFIG={botToken:\\'' + (process.env.TELEGRAM_BOT_TOKEN||'') + '\\',chatId:\\'' + (process.env.TELEGRAM_CHAT_ID||'') + '\\'};');\""
 
 # Redireccion de index.html para la raiz
 [[redirects]]
