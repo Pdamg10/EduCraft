@@ -72,15 +72,6 @@ No se usa ningún framework ni dependencia de Node.js. Basta con abrir el `index
 
 ---
 
-## 📞 Contacto del negocio
-
-| Canal | Datos |
-|---|---|
-| WhatsApp | +58 424-9016080 · +58 426-2296127 · +58 412-9266244 · +58 414-8804780 |
-| Email | phamelamorey1998@gmail.com · jpadron045@gmail.com · vh202279@gmail.com · hilliaryangel7@gmail.com |
-
----
-
 ## 📄 Licencia
 
 Uso privado. Todos los derechos reservados © 2025 EduCraft Servicios Académicos.
