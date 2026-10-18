@@ -82,6 +82,10 @@ ul, ol { list-style: none; }
   margin-right: auto;
 }
 
+section {
+  scroll-margin-top: 80px;
+}
+
 .section-header {
   text-align: center;
   margin-bottom: 48px;
@@ -1299,103 +1303,47 @@ ul, ol { list-style: none; }
   margin-bottom: 28px;
 }
 
+/* Contact Quick Bar (WhatsApp) */
 .contact-quick-bar {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
-.contact-group-label {
+.contact-quick-label {
   font-family: var(--font-display);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--dorado);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
 }
 
-.contact-group-label.centered {
-  justify-content: center;
-}
-
-.contact-group-label i {
+.contact-quick-label i {
   font-size: 1rem;
 }
 
-.contact-item {
+.contact-whatsapp-btns {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 12px 16px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-md);
-  margin-bottom: 8px;
-  transition: all var(--transition-sm);
-}
-
-.contact-item:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.15);
-}
-
-.contact-item a {
-  color: var(--blanco);
-  font-size: 0.88rem;
-  font-weight: 500;
-  word-break: break-all;
-  transition: color var(--transition-sm);
-}
-
-.contact-item a:hover {
-  color: var(--dorado);
-}
-
-.contact-item-btn {
-  flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  transition: transform var(--transition-sm);
-}
-
-.contact-item-btn:hover {
-  transform: scale(1.1);
-}
-
-.contact-item-btn.whatsapp {
-  background: var(--whatsapp);
-  color: var(--blanco);
-}
-
-.contact-item-btn.email {
-  background: var(--dorado);
-  color: var(--morado-oscuro);
-}
-
-/* Symmetrical WhatsApp Buttons Grid */
-.contact-whatsapp-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .contact-direct-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 14px 18px;
-  border-radius: var(--radius-md);
+  padding: 8px 18px;
+  border-radius: 50px;
   font-family: var(--font-display);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 600;
   transition: all var(--transition-sm);
   text-align: center;
@@ -1403,9 +1351,9 @@ ul, ol { list-style: none; }
 }
 
 .contact-direct-btn.whatsapp {
-  background: rgba(37, 211, 102, 0.15);
+  background: rgba(37, 211, 102, 0.12);
   color: var(--whatsapp);
-  border: 1.5px solid rgba(37, 211, 102, 0.3);
+  border: 1.5px solid rgba(37, 211, 102, 0.35);
 }
 
 .contact-direct-btn.whatsapp:hover {
@@ -1413,47 +1361,10 @@ ul, ol { list-style: none; }
   color: var(--blanco);
   border-color: var(--whatsapp);
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
 }
 
-.contact-direct-btn.email {
-  background: rgba(201, 168, 76, 0.15);
-  color: var(--dorado);
-  border: 1.5px solid rgba(201, 168, 76, 0.3);
-}
-
-.contact-direct-btn.email:hover {
-  background: var(--dorado);
-  color: var(--morado-oscuro);
-  border-color: var(--dorado);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(201, 168, 76, 0.3);
-}
-
-/* Symmetrical Separator */
-.contact-separator {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  margin: 32px 0 28px;
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-}
-
-.contact-separator::before,
-.contact-separator::after {
-  content: '';
-  flex: 1;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.contact-separator span {
-  padding: 0 18px;
-}
-
-/* Contact Form */
+/* Contact Form Card (Dashboard) */
 .contact-form-wrapper {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -1462,6 +1373,27 @@ ul, ol { list-style: none; }
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+}
+
+.form-card-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.form-card-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--blanco) !important;
+  margin-bottom: 6px;
+}
+
+.form-card-subtitle {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.75) !important;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 480px;
 }
 
 .form-fields-grid {
