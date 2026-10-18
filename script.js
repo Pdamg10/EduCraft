@@ -258,6 +258,12 @@ accordionItems.forEach(item => {
   });
 });
 
+// Configuración de Telegram Bot para notificaciones a los 4 asesores
+const TELEGRAM_CONFIG = {
+  botToken: '', // Reemplazar con el token de @BotFather (ej: 123456789:ABCdef...)
+  chatId: ''    // Reemplazar con el ID del grupo (ej: -1001234567890)
+};
+
 // WhatsApp Numbers for dispatch
 const WHATSAPP_NUMBERS = [
   { id: 1, name: 'WhatsApp 1', number: '584249016080' },
@@ -306,6 +312,7 @@ contactForm.addEventListener('submit', (e) => {
 
   // Extract form data
   const nombre = $('#nombre').value.trim();
+  const telefono = $('#telefono') ? $('#telefono').value.trim() : '';
   const email = $('#email').value.trim();
   const nivelEl = $('#nivel');
   const nivel = (nivelEl && nivelEl.value) ? nivelEl.options[nivelEl.selectedIndex].text : 'No especificado';
@@ -316,11 +323,38 @@ contactForm.addEventListener('submit', (e) => {
   const origen = (origenEl && origenEl.value) ? origenEl.options[origenEl.selectedIndex].text : 'No especificado';
   const descripcion = $('#descripcion').value.trim();
 
-  // Build formatted WhatsApp message
+  // Limpiar numero de telefono para enlace
+  const cleanPhone = telefono.replace(/[^\d]/g, '');
+
+  // 1. Enviar notificación instantánea a Telegram (Grupo de los 4 asesores)
+  if (TELEGRAM_CONFIG.botToken && TELEGRAM_CONFIG.chatId) {
+    const telegramMsg = `🎓 <b>NUEVA SOLICITUD DE TRABAJO - EduCraft</b>\n\n` +
+      `👤 <b>Cliente:</b> ${nombre}\n` +
+      `📱 <b>WhatsApp:</b> <a href="https://wa.me/${cleanPhone}">${telefono}</a>\n` +
+      `📧 <b>Correo:</b> ${email}\n` +
+      `📚 <b>Nivel:</b> ${nivel}\n` +
+      `🛠️ <b>Servicio:</b> ${servicio}\n` +
+      `📅 <b>Fecha entrega:</b> ${fecha}\n` +
+      `🔍 <b>Origen:</b> ${origen}\n\n` +
+      `📝 <b>Detalles del trabajo:</b>\n${descripcion}`;
+
+    fetch(`https://api.telegram.org/bot${TELEGRAM_CONFIG.botToken}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: TELEGRAM_CONFIG.chatId,
+        text: telegramMsg,
+        parse_mode: 'HTML'
+      })
+    }).catch(err => console.warn('Error enviando a Telegram:', err));
+  }
+
+  // 2. Construir mensaje de WhatsApp
   const messageLines = [
     '🎓 *NUEVA SOLICITUD DE TRABAJO - EDU_CRAFT*',
     '',
     `👤 *Nombre:* ${nombre}`,
+    `📱 *Mi WhatsApp:* ${telefono}`,
     `📧 *Correo:* ${email}`,
     `📚 *Nivel:* ${nivel}`,
     `🛠️ *Servicio:* ${servicio}`,
@@ -363,7 +397,6 @@ contactForm.addEventListener('submit', (e) => {
       });
     });
 
-    // Mark WhatsApp 1 as opened
     const firstCard = waSendAllGrid.querySelector('[data-id="1"]');
     if (firstCard) {
       firstCard.classList.add('opened');
@@ -374,12 +407,21 @@ contactForm.addEventListener('submit', (e) => {
     }
   }
 
-  // Open first WhatsApp automatically in a new window/tab
-  window.open(`https://wa.me/${WHATSAPP_NUMBERS[0].number}?text=${encodedMsg}`, '_blank');
+  // Cambiar boton a estado de apertura
+  const submitBtn = contactForm.querySelector('.form-submit');
+  if (submitBtn) {
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Abriendo WhatsApp...';
+  }
 
-  // Transition UI to success view
+  // Transicionar interfaz a vista de exito
   contactForm.style.display = 'none';
   formSuccess.classList.add('active');
+
+  // 3. Abrir WhatsApp DIRECTO al número principal (6080) sin bloqueo de popups
+  const directWhatsAppUrl = `https://wa.me/${WHATSAPP_NUMBERS[0].number}?text=${encodedMsg}`;
+  setTimeout(() => {
+    window.location.href = directWhatsAppUrl;
+  }, 400);
 });
 
 // Reset form and go back

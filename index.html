@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="style.css?v=2.3">
+  <link rel="stylesheet" href="style.css?v=2.4">
 </head>
 
 <body>
@@ -794,6 +794,10 @@
                 <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
               </div>
               <div class="form-group">
+                <label for="telefono">WhatsApp / Celular *</label>
+                <input type="tel" id="telefono" name="telefono" required placeholder="+58 412 1234567">
+              </div>
+              <div class="form-group">
                 <label for="email">Correo electronico *</label>
                 <input type="email" id="email" name="email" required placeholder="tu@email.com">
               </div>
@@ -828,7 +832,7 @@
                 <label for="fechaLimite">Fecha limite de entrega</label>
                 <input type="date" id="fechaLimite" name="fechaLimite">
               </div>
-              <div class="form-group">
+              <div class="form-group full-width">
                 <label for="origen">Como nos encontraste?</label>
                 <select id="origen" name="origen">
                   <option value="">Selecciona una opcion</option>
@@ -844,8 +848,7 @@
                   placeholder="Cuentanos los detalles de lo que necesitas..."></textarea>
               </div>
             </div>
-            <button type="submit" class="form-submit"><i class="fab fa-whatsapp"></i> Enviar solicitud a los
-              WhatsApp</button>
+            <button type="submit" class="form-submit"><i class="fab fa-whatsapp"></i> Enviar solicitud ahora</button>
           </form>
 
           <!-- Success message with multi-WhatsApp dispatch -->
@@ -897,7 +900,7 @@
   </footer>
 
   <!-- Script -->
-  <script src="script.js?v=2.3"></script>
+  <script src="script.js?v=2.4"></script>
 
 </body>
 
